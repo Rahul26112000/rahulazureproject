@@ -133,6 +133,8 @@
 			{
 				"name": "update_last_cdc",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "max_cdc",
@@ -232,7 +234,7 @@
 						{
 							"type": "Query",
 							"text": {
-								"value": "@SELECT MAX(@{pipeline().parameters.cdc_col}) as cdc from @{pipeline().parameters.schema}.@{pipeline().parameters.tables}",
+								"value": "SELECT MAX(@{pipeline().parameters.cdc_col}) as cdc from @{pipeline().parameters.schema}.@{pipeline().parameters.tables}",
 								"type": "Expression"
 							}
 						}
